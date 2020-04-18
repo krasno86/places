@@ -74,6 +74,10 @@ class Registration extends Component {
             }
         )
             .then(response => {
+                if (response.status === 200) {
+                    this.props.history.push("/login");
+                    console.log('Successfully Register, check email');
+                }
             })
             .catch(error => console.log(error))
     }

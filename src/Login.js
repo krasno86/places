@@ -74,8 +74,12 @@ class Login extends Component {
             }
         )
             .then(response => {
+                if (response.status === 200) {
+                    this.props.history.push("/");
+                    console.log('Successfully Login');
+                }
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log('api errors:', error))
     }
 
     resetNotification = () => {
