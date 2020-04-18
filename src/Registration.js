@@ -35,7 +35,7 @@ axios.interceptors.response.use(function (response) {
 });
 
 
-class Login extends Component {
+class Registration extends Component {
 
     state = {
         notification: ''
@@ -54,7 +54,7 @@ class Login extends Component {
                     <input type="password" name="user[password]" id="user_password" />
                 </div>
                 <button className="register"
-                    onClick={this.login} >
+                    onClick={this.registration} >
                     Register
                 </button>
                 <span className="notification">
@@ -65,7 +65,7 @@ class Login extends Component {
         );
     }
 
-    login = () => {
+    registration = () => {
         axios.post(
             'http://localhost:3000/auth',
             {
@@ -74,10 +74,6 @@ class Login extends Component {
             }
         )
             .then(response => {
-                // localStorage.setItem('jwt', response.data.auth_token)
-                // localStorage.setItem('access-token', response.headers['access-token'])
-                // localStorage.setItem('client', response.headers['client'])
-                // localStorage.setItem('uid', response.headers['uid'])
             })
             .catch(error => console.log(error))
     }
@@ -87,4 +83,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default Registration

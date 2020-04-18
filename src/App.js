@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
 import Registration from './Registration'
 import Login from './Login'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <BrowserRouter>

@@ -74,10 +74,6 @@ class Login extends Component {
             }
         )
             .then(response => {
-                // localStorage.setItem('jwt', response.data.auth_token)
-                // localStorage.setItem('access-token', response.headers['access-token'])
-                // localStorage.setItem('client', response.headers['client'])
-                // localStorage.setItem('uid', response.headers['uid'])
             })
             .catch(error => console.log(error))
     }
