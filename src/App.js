@@ -10,12 +10,10 @@ import ShowCompany from './show_company'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {page: 3, product_list: PRODUCTS };
-        this.handleChangePage = this.handleChangePage.bind(this);
-        this.handleHomePage = this.handleHomePage.bind(this);
-    }
+    state = {
+        page: 3,
+        product_list: PRODUCTS
+    };
 
     handleChangePage(Product) {
         this.setState({
