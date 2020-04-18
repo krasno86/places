@@ -9,7 +9,7 @@ import ShowCompany from './show_company'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {page: 0, product_list: PRODUCTS };
+    this.state = {page: 3, product_list: PRODUCTS };
       this.handleChangePage = this.handleChangePage.bind(this);
       this.handleHomePage = this.handleHomePage.bind(this);
   }
