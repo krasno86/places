@@ -43,25 +43,33 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Login</h1>
-                <div className="email_input">
-                    <label htmlFor="user_email">Email</label><br/>
-                    <input autoFocus type="email" name="user[email]" id="user_email" />
+            <form>
+                <h3>Login</h3>
+                <div className="form-group email_input">
+                    <label>Email address</label>
+                    <input type="email" className="form-control" placeholder="Enter email" autoFocus name="user[email]" id="user_email"/>
                 </div>
-                <div className="password">
-                    <label htmlFor="user_password">password</label><br/>
-                    <input type="password" name="user[password]" id="user_password" />
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Enter password" name="user[password]" id="user_password" />
                 </div>
-                <button className="login"
-                        onClick={this.login} >
-                    Log in
+                <div className="form-group">
+                    <div className="custom-control custom-checkbox">
+                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                    </div>
+                </div>
+                <button type="submit" className="btn btn-primary btn-block login"
+                    onClick={this.login}>
+                    Submit
                 </button>
+                <p className="forgot-password text-right">
+                    Forgot <a href="#">password?</a>
+                </p>
                 <span className="notification">
                   {this.state.notification}
-                </span><br/>
-
-            </div>
+                </span>
+            </form>
         );
     }
 

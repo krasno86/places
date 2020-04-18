@@ -1,4 +1,5 @@
 import React from "react";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Registration from './Registration'
 import Login from './Login'
@@ -33,18 +34,18 @@ class App extends React.Component {
 
       return (
       <BrowserRouter>
-        <div>
           <div>
-            {/*<h2>Main menu</h2>*/}
-            {/*<div><NavLink activeStyle = {{color: 'red'}} to='/home'>HOME</NavLink></div>*/}
-            <div><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></div>
-            <div><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></div>
-          </div>
-          <div className="root">
-            <Route path = '/registration' component = {Registration}/>
-            <Route path = '/login' component = {Login}/>
-            <Route path = '/#' component = {App}/>
-          </div>
+              <div>
+                <div><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></div>
+                <div><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></div>
+              </div>
+              <div className="auth-wrapper">
+                  <div className="auth-inner">
+                      <Route path = '/registration' component = {Registration}/>
+                      <Route path = '/login' component = {Login}/>
+                      <Route path = '/#' component = {App}/>
+                  </div>
+              </div>
         </div>
         <div className="App">
             <header onClick={this.handleHomePage} style={{cursor:'pointer'}}>
