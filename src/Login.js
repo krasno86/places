@@ -43,6 +43,8 @@ class Login extends Component {
 
     render() {
         return (
+            <div className="auth-wrapper">
+                <div className="auth-inner">
             <form>
                 <h3>Login</h3>
                 <div className="form-group email_input">
@@ -70,6 +72,8 @@ class Login extends Component {
                   {this.state.notification}
                 </span>
             </form>
+                </div>
+            </div>
         );
     }
 

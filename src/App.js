@@ -10,6 +10,15 @@ import ShowCategory from './show_category'
 import ShowCompany from './show_company'
 import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 
+const PRODUCTS = [
+    {category: 'Sporting1 Goods', price: '$49.99', stocked: true, name: 'Football'},
+    {category: 'Sporting2 Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+    {category: 'Sporting3 Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+    {category: 'Electronics1', price: '$99.99', stocked: true, name: 'iPod Touch'},
+    {category: 'Electronics2', price: '$399.99', stocked: false, name: 'iPhone 5'},
+    {category: 'Electronics3', price: '$199.99', stocked: true, name: 'Nexus 7'}
+];
+
 class App extends React.Component {
     state = {
         page: 3,
@@ -23,7 +32,7 @@ class App extends React.Component {
         });
     }
 
-    handleHomePage(number_page) {
+    handleHomePage() {
         this.setState({
             page: 0
         });
@@ -35,37 +44,24 @@ class App extends React.Component {
       return (
       <BrowserRouter>
           <div>
-              <div>
-                <div><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></div>
-                <div><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></div>
-              </div>
-              <div className="auth-wrapper">
-                  <div className="auth-inner">
-                      <Route path = '/registration' component = {Registration}/>
-                      <Route path = '/login' component = {Login}/>
-                      <Route path = '/#' component = {App}/>
-                  </div>
-              </div>
-        </div>
-        <div className="App">
-            <header onClick={this.handleHomePage} style={{cursor:'pointer'}}>
-                <Header />
-            </header>
-            <LeftNavBarCategory onChangePage={this.handleChangePage} products={PRODUCTS} />
-            {page}
-        </div>
+              <ul className="topnav">
+                  <li><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></li>
+                  <li><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></li>
+              </ul>
+                  <Route path = '/registration' component = {Registration}/>
+                  <Route path = '/login' component = {Login}/>
+                  <Route path = '/#' component = {App}/>
+          </div>
+          <div className="App">
+              <header onClick={this.handleHomePage} style={{cursor:'pointer'}}>
+                  <Header />
+              </header>
+              <LeftNavBarCategory onChangePage={this.handleChangePage} products={PRODUCTS} />
+              {page}
+          </div>
       </BrowserRouter>
     );
   }
 }
-
-const PRODUCTS = [
-    {category: 'Sporting1 Goods', price: '$49.99', stocked: true, name: 'Football'},
-    {category: 'Sporting2 Goods', price: '$9.99', stocked: true, name: 'Baseball'},
-    {category: 'Sporting3 Goods', price: '$29.99', stocked: false, name: 'Basketball'},
-    {category: 'Electronics1', price: '$99.99', stocked: true, name: 'iPod Touch'},
-    {category: 'Electronics2', price: '$399.99', stocked: false, name: 'iPhone 5'},
-    {category: 'Electronics3', price: '$199.99', stocked: true, name: 'Nexus 7'}
-];
 
 export default App
