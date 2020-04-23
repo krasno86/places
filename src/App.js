@@ -27,11 +27,6 @@ class App extends React.Component {
         this.handleHomePage = this.handleHomePage.bind(this);
     }
 
-    state = {
-        page: 3,
-        product_list: PRODUCTS
-    };
-
     handleChangePage(Product) {
         this.setState({
             page: 1,
