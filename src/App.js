@@ -20,6 +20,13 @@ const PRODUCTS = [
 ];
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { page: 3, product_list: PRODUCTS };
+        this.handleChangePage = this.handleChangePage.bind(this);
+        this.handleHomePage = this.handleHomePage.bind(this);
+    }
+
     state = {
         page: 3,
         product_list: PRODUCTS
@@ -38,30 +45,30 @@ class App extends React.Component {
         });
     }
 
-  render() {
-      const page = (this.state.page === 0) ? <TopCompany /> : (this.state.page === 1) ? <ShowCategory  products={this.state.product_list}/> : <ShowCompany />;
+   render() {
+       const page = (this.state.page === 0) ? <TopCompany /> : (this.state.page === 1) ? <ShowCategory  products={this.state.product_list}/> : <ShowCompany />;
 
-      return (
-      <BrowserRouter>
-          <div>
-              <ul className="topnav">
-                  <li><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></li>
-                  <li><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></li>
-              </ul>
-                  <Route path = '/registration' component = {Registration}/>
-                  <Route path = '/login' component = {Login}/>
-                  <Route path = '/#' component = {App}/>
-          </div>
-          <div className="App">
-              <header onClick={this.handleHomePage} style={{cursor:'pointer'}}>
-                  <Header />
-              </header>
-              <LeftNavBarCategory onChangePage={this.handleChangePage} products={PRODUCTS} />
-              {page}
-          </div>
-      </BrowserRouter>
-    );
-  }
+       return (
+           <BrowserRouter>
+               <div>
+                   <ul className="topnav">
+                       <li><NavLink activeStyle = {{color: 'red'}} to='/registration'>registration</NavLink></li>
+                       <li><NavLink activeStyle = {{color: 'red'}} to='/login'>log in</NavLink></li>
+                   </ul>
+                   <Route path = '/registration' component = {Registration}/>
+                   <Route path = '/login' component = {Login}/>
+                   <Route path = '/#' component = {App}/>
+               </div>
+               <div className="App">
+                   <header onClick={this.handleHomePage} style={{cursor:'pointer'}}>
+                       <Header />
+                   </header>
+                   <LeftNavBarCategory onChangePage={this.handleChangePage} products={PRODUCTS} />
+                   {page}
+               </div>
+           </BrowserRouter>
+       );
+   }
 }
 
 export default App

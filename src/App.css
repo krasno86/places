@@ -39,6 +39,10 @@
 
 body {margin: 0;}
 
+.auth-wrapper {
+  margin-top: 100px;
+}
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
